@@ -10,13 +10,13 @@ vim.keymap.set('n', '<leader>rff',
 function()
 	builtin.find_files({ cwd = vim.fn.expand('%:p:h') })
 end
-, { desc = 'Telescope find files' })
+, { desc = 'Telescope find files relative to file cwd' })
 
 vim.keymap.set('n', '<leader>rfg',
 function()
 	builtin.live_grep( { cwd = vim.fn.expand('%:p:h') } )
 end
-, { desc = 'Telescope live grep' })
+, { desc = 'Telescope live grep relative to file cwd' })
 
 local telescope = require('telescope')
 telescope.setup {
