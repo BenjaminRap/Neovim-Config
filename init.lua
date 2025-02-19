@@ -1,6 +1,6 @@
 require("config.lazy")
-require("mini.pairs").setup()
 
+require("mini.pairs").setup()
 require("mini.move").setup()
 require("mini.icons").setup()
 require("catppuccin").setup()
