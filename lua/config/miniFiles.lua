@@ -14,7 +14,7 @@ miniFiles.setup({
 	-- Module mappings created only inside explorer.
 	-- Use `''` (empty string) to not create one.
 	mappings = {
-		close       = 'q',
+		close       = '<Esc>',
 		go_in       = 'l',
 		go_in_plus  = 'L',
 		go_out      = 'h',
@@ -55,6 +55,6 @@ miniFiles.setup({
 vim.keymap.set('n', '<leader>e', MiniFiles.open, { desc = 'Open the miniFiles explorer' })
 vim.keymap.set('n', '<leader>re',
 function()
-	miniFiles.open(vim.fn.expand('%:p:h'))
+  	MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
 end
 , { desc = 'Open the miniFiles explorer' })
