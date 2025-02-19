@@ -8,3 +8,5 @@ ripgrep, fd : telescope
 make, git
 gcc, tree-sitter, node : tree sitter
 lua5.1, lua5.1-dev
+
+omnisharp : unity
