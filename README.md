@@ -6,3 +6,4 @@ wsl-open : browser
 clangd, lua-server-language (sumneko lua), bear : autocompletion
 ripgrep, fd : telescope
 make, git
+gcc, tree-sitter
