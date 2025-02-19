@@ -31,3 +31,5 @@ lspconfig.lua_ls.setup({
 		},
 	},
 })
+
+lspconfig.omnisharp.setup({})
