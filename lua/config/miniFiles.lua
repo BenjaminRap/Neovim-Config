@@ -53,3 +53,8 @@ miniFiles.setup({
 })
 
 vim.keymap.set('n', '<leader>e', MiniFiles.open, { desc = 'Open the miniFiles explorer' })
+vim.keymap.set('n', '<leader>re',
+function()
+	miniFiles.open(vim.fn.expand('%:p:h'))
+end
+, { desc = 'Open the miniFiles explorer' })
