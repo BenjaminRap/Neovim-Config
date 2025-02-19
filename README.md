@@ -7,3 +7,4 @@ clangd, lua-server-language (sumneko lua), bear : autocompletion
 ripgrep, fd : telescope
 make, git
 gcc, tree-sitter
+lua5.1, lua5.1-dev
