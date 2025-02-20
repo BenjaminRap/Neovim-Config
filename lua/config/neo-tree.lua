@@ -13,5 +13,13 @@ require('neo-tree').setup {
 			['o'] = 'create',      -- Créer un fichier avec 'o'
 			['d'] = 'delete',      -- Supprimer un fichier avec 'd'
 		},
+	},
+	event_handlers = {
+		{
+			event = "file_open_requested",
+			handler = function()
+				require("neo-tree.command").execute({ action = "close" })
+			end
+		},
 	}
 }
