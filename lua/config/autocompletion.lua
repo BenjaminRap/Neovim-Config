@@ -9,6 +9,7 @@ cmp.setup({
     sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },  -- LSP
 		{ name = 'buffer' },    -- Buffer courant
+		{ name = 'luasnip' },   -- snippets
 		{ name = 'path' },      -- Chemin
     }),
     mapping = cmp.mapping.preset.insert({
@@ -44,3 +45,5 @@ vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { noremap = true, silent = tr
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true, silent = true })
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true, silent = true })
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true })
+
+require("luasnip.loaders.from_vscode").lazy_load()
