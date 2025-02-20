@@ -1,19 +1,5 @@
 require("config.lazy")
 
-require("mini.pairs").setup()
-require("mini.move").setup()
-require("mini.icons").setup()
-require("catppuccin").setup()
-require("toggleterm").setup()
-require("lualine").setup()
-
-require("config.autocompletion")
-require("config.miniFiles");
-require("config.telescope")
-require("config.nvim-treesitter")
-require("config.lspconfig")
-require("config.browse")
-
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 
