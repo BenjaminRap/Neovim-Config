@@ -2,6 +2,8 @@ require("config.lazy")
 
 vim.cmd("set number")
 vim.cmd("set relativenumber")
+vim.cmd("set shiftwidth=4")
+vim.cmd("set tabstop=4")
 
 vim.g.mapLeader = " "
 
@@ -25,11 +27,11 @@ vim.api.nvim_set_keymap('n', '<leader>t', ':ToggleTerm<CR>', { noremap = true, s
 vim.api.nvim_set_keymap('t', '<leader><Esc>', '<C-\\><C-n>', { noremap = true, silent = true})
 
 vim.keymap.set('n', '<leader>i', function()
-	if vim.fn.has("win64") == 1 then
-		vim.api.nvim_command(":e ~/AppData/Local/nvim/init.lua")
+    if vim.fn.has("win64") == 1 then
+	vim.api.nvim_command(":e ~/AppData/Local/nvim/init.lua")
 	end
-	if vim.fn.has("unix") == 1 then
-		vim.api.nvim_command(":e ~/.config/nvim/init.lua")
-	end
+    if vim.fn.has("unix") == 1 then
+	vim.api.nvim_command(":e ~/.config/nvim/init.lua")
+    end
 end
 )

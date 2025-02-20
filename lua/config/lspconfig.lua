@@ -35,8 +35,27 @@ lspconfig.lua_ls.setup({
 	},
 })
 
+-- lspconfig.csharp_ls.setup({
+-- 	capabilities = capabilities,
+-- 	cmd = { "csharp-ls" },
+-- 	filetypes = { "cs", "csharp" },
+-- 	root_dir = lspconfig.util.root_pattern("*.sln"),  -- Racine du projet
+-- 	settings = {
+-- 		csharp = {
+-- 			codeActions = {
+-- 				enable = true,
+-- 			},
+-- 			-- formatting = {
+-- 			-- 	enable = true,
+-- 			-- },
+-- 			diagnostics = {
+-- 				enable = true,
+-- 			},
+-- 		},
+-- 	},
+-- })
+
 lspconfig.omnisharp.setup({
-	capabilities = capabilities,
 	cmd = {
 		"omnisharp",
 		"--languageserver",
@@ -44,11 +63,14 @@ lspconfig.omnisharp.setup({
 		tostring(vim.fn.getpid())
 	},
 	settings = {
+		FormattingOptions = {
+			EnableEditorConfigSupport = false,
+		},
 		RoslynExtensionsOptions = {
-			enableDecompilationSupport = false,
-			enableImportCompletion = true,
-			enableAnalyzersSupport = true,
-		}
+			EnableDecompilationSupport = false,
+			EnableImportCompletion = true,
+			EnableAnalyzersSupport = false,
+		},
 	},
 	root_dir = lspconfig.util.root_pattern("*.sln")
 })
