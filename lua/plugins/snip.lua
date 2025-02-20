@@ -5,6 +5,6 @@ return {
 		'rafamadriz/friendly-snippets'
 	},
 	config = function()
-		require('config.luasnip')
+		require("config.luasnip")
 	end
 }

@@ -16,7 +16,8 @@ cmp.setup({
 		[ "<C-j>" ] = cmp.mapping.select_next_item { cmp.SelectBehavior.Insert },
 		[ "<C-k>" ] = cmp.mapping.select_prev_item { cmp.SelectBehavior.Insert },
 		['<C-Space>'] = cmp.mapping.complete(),
-		['<CR>'] = cmp.mapping.confirm({ select = true }),
+		['<C-l>'] = cmp.mapping.confirm({ select = true }),
+		['<C-h>'] = cmp.mapping.abort(),
     }),
     snippet = {
 		expand = function(args)
