@@ -1,6 +1,8 @@
 local lspconfig = require('lspconfig')
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 lspconfig.clangd.setup({
+	capabilities = capabilities,
 	on_attach = function(client, bufnr)
 		vim.diagnostic.config({
 			virtual_text = true,   -- Affiche les erreurs directement dans le code
@@ -11,6 +13,7 @@ lspconfig.clangd.setup({
 })
 
 lspconfig.lua_ls.setup({
+	capabilities = capabilities,
 	settings = {
 		Lua = {
 			runtime = {
@@ -32,4 +35,20 @@ lspconfig.lua_ls.setup({
 	},
 })
 
-lspconfig.omnisharp.setup({})
+lspconfig.omnisharp.setup({
+	capabilities = capabilities,
+	cmd = {
+		"omnisharp",
+		"--languageserver",
+		"--hostPID",
+		tostring(vim.fn.getpid())
+	},
+	settings = {
+		RoslynExtensionsOptions = {
+			enableDecompilationSupport = false,
+			enableImportCompletion = true,
+			enableAnalyzersSupport = true,
+		}
+	},
+	root_dir = lspconfig.util.root_pattern("*.sln")
+})
