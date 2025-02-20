@@ -16,10 +16,10 @@ vim.api.nvim_set_keymap('n', '<leader>h', '<C-w>h', { noremap = true, silent = t
 vim.api.nvim_set_keymap('n', '<leader>l', '<C-w>l', { noremap = true, silent = true})
 
 -- Resize the current window
-vim.api.nvim_set_keymap('n', '<A-->', '<C-w>-', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<A-=>', '<C-w>+', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<A-,>', '<C-w>>', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<A-.>', '<C-w><', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-->', '<C-w>3-', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-=>', '<C-w>3+', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-,>', '<C-w>3>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-.>', '<C-w>3<', { noremap = true, silent = true})
 
 -- Move from a terminal to another tab
 vim.api.nvim_set_keymap('t', '<leader>k', '<C-\\><C-n><C-w>k', { noremap = true, silent = true})
