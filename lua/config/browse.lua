@@ -17,9 +17,9 @@ local bookmarks = {
 	},
 }
 
-vim.keymap.set("n", "<leader>gb", function()
+vim.keymap.set("n", "<leader>bb", function()
 	browser.open_bookmarks({ bookmarks = bookmarks })
 end)
-vim.keymap.set("n", "<leader>gi", function()
+vim.keymap.set("n", "<leader>bi", function()
 	browser.input_search()
 end)

@@ -75,5 +75,3 @@ lspconfig.lua_ls.setup({
 -- 	root_dir = lspconfig.util.root_pattern("*.sln")
 -- })
 --
---
--- vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
