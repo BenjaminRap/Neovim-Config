@@ -15,7 +15,7 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"lua_ls", "clangd", "omnisharp", "roslyn",
+					"lua_ls", "clangd", "omnisharp",
 				}
 			})
 		end
