@@ -2,7 +2,12 @@ return {
 	{
 		"williamboman/mason.nvim",
 		config = function()
-			require("mason").setup()
+			require("mason").setup({
+				registries = {
+					"github:Crashdummyy/mason-registry", -- Custom registry for rosly.nvim
+					"github:mason-org/mason-registry", -- Default registry
+				},
+			})
 		end
 	},
 	{
@@ -10,7 +15,7 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"lua_ls", "clangd", "omnisharp",
+					"lua_ls", "clangd", "omnisharp", "roslyn",
 				}
 			})
 		end

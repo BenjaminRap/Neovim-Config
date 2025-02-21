@@ -55,25 +55,25 @@ lspconfig.lua_ls.setup({
 -- 	},
 -- })
 
-lspconfig.omnisharp.setup({
-	cmd = {
-		"omnisharp",
-		"--languageserver",
-		"--hostPID",
-		tostring(vim.fn.getpid())
-	},
-	settings = {
-		FormattingOptions = {
-			EnableEditorConfigSupport = false,
-		},
-		RoslynExtensionsOptions = {
-			EnableDecompilationSupport = false,
-			EnableImportCompletion = true,
-			EnableAnalyzersSupport = false,
-		},
-	},
-	root_dir = lspconfig.util.root_pattern("*.sln")
-})
-
-
-vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
+-- lspconfig.omnisharp.setup({
+-- 	cmd = {
+-- 		"omnisharp",
+-- 		"--languageserver",
+-- 		"--hostPID",
+-- 		tostring(vim.fn.getpid())
+-- 	},
+-- 	settings = {
+-- 		FormattingOptions = {
+-- 			EnableEditorConfigSupport = false,
+-- 		},
+-- 		RoslynExtensionsOptions = {
+-- 			EnableDecompilationSupport = false,
+-- 			EnableImportCompletion = true,
+-- 			EnableAnalyzersSupport = false,
+-- 		},
+-- 	},
+-- 	root_dir = lspconfig.util.root_pattern("*.sln")
+-- })
+--
+--
+-- vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
