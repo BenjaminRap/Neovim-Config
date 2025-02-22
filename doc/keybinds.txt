@@ -1,6 +1,10 @@
 *keybinds*	Reminder of my personal keybinds
 
-Pour l'explorateur de fichier :
+=========================================================================================
+
+| Pour l'explorateur de fichier :
+
+-----------------------------------------------------------------------------------------
 	Il fonctionne comme un buffer normal:
 		- rajouter une ligne rajouteras un fichier/dossier.
 		- supprimer une ligne supprimeras le fichier/dossier.
@@ -15,7 +19,9 @@ Pour l'explorateur de fichier :
 			- <C-c> : close file explorer.
 
 
-Pour la navigation entre paneaux :
+| Pour la navigation entre paneaux :
+
+-----------------------------------------------------------------------------------------
 	Il faut utiliser split et vsplit pour creer deds paneaux.
 	Pour naviguer enter paneaux, il faut utiliser Control.
 	Keybinds :
@@ -23,7 +29,11 @@ Pour la navigation entre paneaux :
 		- <C-k> : alle dans le paneau du haut.
 		- <C-j> : alle dans le paneau du bas.
 		- <C-h> : alle dans le paneau de gauche.
-Pour resize un paneau :
+
+
+| Pour resize un paneau :
+
+-----------------------------------------------------------------------------------------
 	Il faut utiliser Alt.
 	Keybinds :
 		- <A-+> : Augmenter la taille verticale.
@@ -32,14 +42,18 @@ Pour resize un paneau :
 		- <A-.> : Diminuer la taille horizontale.
 
 
-Pour le browser :
+| Pour le browser :
+
+-----------------------------------------------------------------------------------------
 	Il faut utiliser <leader>b + something, avec b pour browser
 	Keybinds:
 		- <leader>bb : ouvre les bookmarks
 		- <leader>bi : ouvre une recherche avec un texte, i pour insert
 
 
-Pour telescope:
+| Pour telescope:
+
+-----------------------------------------------------------------------------------------
 	Il faut utiliser <leader>f + something, avec f pour find
 	Keybinds:
 		- <leader>ff : chercher dans les fichiers, f pour file.
@@ -51,32 +65,42 @@ Pour telescope:
 		- <leader>rff : comme <leader>fg mais relatif au fichier actuel, r pour relative
 
 
-Snippets:
+| Snippets:
+
+-----------------------------------------------------------------------------------------
 	Il faut utiliser Ctrl:
 	Keybinds:
 		- <C-l> : aller a l'element suivant.
 		- <C-l> : aller a l'element precedant.
 
 
-InitFile:
+| InitFile:
+
+-----------------------------------------------------------------------------------------
 	Keybinds:
 		- <leader>i : remplace la page actuelle par la page init.lua
 
 
-Terminal:
+| Terminal:
+
+-----------------------------------------------------------------------------------------
 	Il faut utiliser Control
 	Keybinds:
-		- <C-t> : toggle le terminal
-		- <C-e> : aller en mode vim dans le terminal
+		- <C-t> : toggle le terminal, t pour terminal
+		- <C-e> : aller en mode vim dans le terminal, e pour escape
 
-Tabs:
+| Tabs:
+
+-----------------------------------------------------------------------------------------
 	Il faut utiliser <leader>t something, t pour tab
 	Keybinds:
 		- <leader>tn : creer un nouveau terminal, n pour new
 		- <leader>tc : fermer le terminal, c pour close
 
 
-Debugger:
+| Debugger:
+
+-----------------------------------------------------------------------------------------
 	Il faut utiliser <leader>d + something, d pour debugger
 	Keybinds:
 		- <leader>db : creer un breakpoint, b pour breakpoint.
