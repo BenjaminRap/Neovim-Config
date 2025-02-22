@@ -12,3 +12,4 @@ lua5.1, lua5.1-dev
 dotnet
 lazygit
 gdb version 14+
+neovim-remote
