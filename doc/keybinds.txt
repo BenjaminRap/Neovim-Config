@@ -1,0 +1,84 @@
+*keybinds*	Reminder of my personal keybinds
+
+Pour l'explorateur de fichier :
+	Il fonctionne comme un buffer normal:
+		- rajouter une ligne rajouteras un fichier/dossier.
+		- supprimer une ligne supprimeras le fichier/dossier.
+		- On peut yank un fichier, ca copieras aussi son contenu.
+		- On peut creer un dossier et fichier en une seule fois : /dossier/dossier2/file.
+	Keybinds :
+		- in normal :
+			- <leader>e : toggle the file explorer.
+		- in file explorer:
+			- <C-l> : go into folder/open file.
+			- <C-h> : go into parent folder.
+			- <C-c> : close file explorer.
+
+
+Pour la navigation entre paneaux :
+	Il faut utiliser split et vsplit pour creer deds paneaux.
+	Pour naviguer enter paneaux, il faut utiliser Control.
+	Keybinds :
+		- <C-l> : alle dans le paneau de de droite.
+		- <C-k> : alle dans le paneau du haut.
+		- <C-j> : alle dans le paneau du bas.
+		- <C-h> : alle dans le paneau de gauche.
+Pour resize un paneau :
+	Il faut utiliser Alt.
+	Keybinds :
+		- <A-+> : Augmenter la taille verticale.
+		- <A--> : Diminuer la taille verticale.
+		- <A-,> : Augmenter la taille horizontale.
+		- <A-.> : Diminuer la taille horizontale.
+
+
+Pour le browser :
+	Il faut utiliser <leader>b + something, avec b pour browser
+	Keybinds:
+		- <leader>bb : ouvre les bookmarks
+		- <leader>bi : ouvre une recherche avec un texte, i pour insert
+
+
+Pour telescope:
+	Il faut utiliser <leader>f + something, avec f pour find
+	Keybinds:
+		- <leader>ff : chercher dans les fichiers, f pour file.
+		- <leader>fg : chercher une string dans les fichier, g pour grep.
+		- <leader>fm : chercher une page du manuelle, m pour man
+		- <leader>fh : chercher une page de :help, h pour help
+		- <leader>fb : chercher dans un buffer, b pour buffer
+		- <leader>rff : comme <leader>ff mais relatif au fichier actuel, r pour relative
+		- <leader>rff : comme <leader>fg mais relatif au fichier actuel, r pour relative
+
+
+Snippets:
+	Il faut utiliser Ctrl:
+	Keybinds:
+		- <C-l> : aller a l'element suivant.
+		- <C-l> : aller a l'element precedant.
+
+
+InitFile:
+	Keybinds:
+		- <leader>i : remplace la page actuelle par la page init.lua
+
+
+Terminal:
+	Il faut utiliser Control
+	Keybinds:
+		- <C-t> : toggle le terminal
+		- <C-e> : aller en mode vim dans le terminal
+
+Tabs:
+	Il faut utiliser <leader>t something, t pour tab
+	Keybinds:
+		- <leader>tn : creer un nouveau terminal, n pour new
+		- <leader>tc : fermer le terminal, c pour close
+
+
+Debugger:
+	Il faut utiliser <leader>d + something, d pour debugger
+	Keybinds:
+		- <leader>db : creer un breakpoint, b pour breakpoint.
+		- <leader>dc : lancer le debugger ou continuer d'un breakpoint a l'autre, c pour continue.
+	Une fois que l'ui du dedbugger est ouverte, il y a des boutons, plus besoin d'utiliser des keybinds.
