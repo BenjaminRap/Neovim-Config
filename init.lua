@@ -7,6 +7,7 @@ vim.cmd("set tabstop=4")
 vim.cmd("colorscheme tokyonight-night")
 
 require('keybinds.pane')
+require('keybinds.lazygit')
 require('keybinds.tab')
 require('keybinds.init-file')
 require('keybinds.term')
