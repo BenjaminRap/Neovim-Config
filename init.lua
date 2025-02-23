@@ -12,3 +12,5 @@ require('keybinds.tab')
 require('keybinds.term')
 
 vim.g.mapLeader = " "
+
+vim.o.undofile = true
