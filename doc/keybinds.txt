@@ -61,6 +61,7 @@
 		- <leader>fm : chercher une page du manuelle, m pour man
 		- <leader>fh : chercher une page de :help, h pour help
 		- <leader>fb : chercher dans un buffer, b pour buffer
+		- <leader>fn : chercher dans les notifications, n pour notification
 		- <leader>rff : comme <leader>ff mais relatif au fichier actuel, r pour relative
 		- <leader>rff : comme <leader>fg mais relatif au fichier actuel, r pour relative
 
