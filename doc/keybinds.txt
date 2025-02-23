@@ -63,6 +63,7 @@
 		- <leader>fb : chercher dans un buffer, b pour buffer
 		- <leader>fn : chercher dans les notifications, n pour notification
 		- <leader>fr : chercher dans les registres, r pour registre
+		- <leader>fo : chercher dans les fichier recents, o pour old pages
 		- <leader>rff : comme <leader>ff mais relatif au fichier actuel, r pour relative
 		- <leader>rff : comme <leader>fg mais relatif au fichier actuel, r pour relative
 
