@@ -100,8 +100,8 @@
 	Keybinds:
 		- <leader>tn : creer un nouveau terminal, n pour new
 		- <leader>tc : fermer le terminal, c pour close
-		- <C-L> : aller dans la tab de gauche.
-		- <C-H> : aller dans la tab de droite.
+		- <C-A-l> : aller dans la tab de gauche.
+		- <C-A-h> : aller dans la tab de droite.
 
 
 | Debugger:
