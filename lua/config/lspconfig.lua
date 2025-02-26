@@ -35,6 +35,14 @@ lspconfig.lua_ls.setup({
 	},
 })
 
+lspconfig.hls.setup({
+	capabilities = capabilities,
+	cmd = { 'haskell-language-server-wrapper', '--lsp' },
+    filetypes = { 'haskell', 'lhaskell', 'cabal' },
+    root_dir = lspconfig.util.root_pattern('hie.yaml', 'stack.yaml', 'cabal.project', '*.cabal', 'package.yaml'),
+    single_file_support = true,
+})
+
 -- lspconfig.csharp_ls.setup({
 -- 	capabilities = capabilities,
 -- 	cmd = { "csharp-ls" },
