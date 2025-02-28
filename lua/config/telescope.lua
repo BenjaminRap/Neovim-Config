@@ -23,9 +23,64 @@ end
 
 local telescope = require('telescope')
 telescope.setup {
-  pickers = {
-    man_pages = {
-      sections = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
-    }
-  }
+	pickers = {
+		man_pages = {
+			sections = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
+		}
+	},
+	defaults = {
+		file_ignore_patterns = {
+			-- C / C++ / C# / Haskell (projets généraux)
+			"%.o$",              -- Fichiers objets compilés
+			"%.d$",              -- Fichiers dependences
+			"%.a$",              -- Fichiers de bibliothèques statiques
+			"%.out$",            -- Fichiers de sortie compilés
+			"%.exe$",            -- Fichiers exécutables sur Windows
+			"%.dll$",            -- Bibliothèques dynamiques sur Windows
+			"%.lib$",            -- Bibliothèques statiques (C/C++)
+			"%.dSYM/",           -- Dossiers de débogage macOS
+			"%.pdb$",            -- Fichiers de débogage C#
+			"%.class$",          -- Fichiers de classe Java (C# dans Unity)
+			"%.obj$",            -- Fichiers objets dans les compilations C++
+			"%.log$",            -- Fichiers de log
+			"%.swp$",            -- Fichiers de swap de Vim
+			"%.swo$",            -- Fichiers de swap de Vim
+			"%.user$",           -- Paramètres spécifiques de l'utilisateur (Visual Studio)
+			"%.suo$",            -- Paramètres de solution Visual Studio
+			"%.vscode/",         -- Dossiers de paramètres Visual Studio Code
+			"%.idea/",           -- Dossiers de configuration JetBrains
+			"CMakeCache.txt",    -- Cache CMake
+			"CMakeFiles/",       -- Fichiers générés par CMake
+
+			-- Fichiers spécifiques à Unity
+			"Library/",          -- Fichiers temporaires générés par Unity
+			"Temp/",             -- Fichiers temporaires générés par Unity
+			"obj/",              -- Répertoire des objets intermédiaires (builds)
+			"UserSettings/",     -- Paramètres spécifiques à l'utilisateur dans Unity
+			".vs/",              -- Dossier de Visual Studio
+			"%.csproj$",         -- Fichiers de projet C# de Visual Studio
+			"%.sln$",            -- Fichiers de solution Visual Studio
+			"Build/",            -- Dossier contenant les builds compilés
+			"%.apk$",            -- Fichiers APK générés pour Android
+			"%.exe$",            -- Fichiers exécutables générés (Windows)
+			"%.app$",            -- Fichiers app générés (macOS)
+
+			-- Fichiers de gestion de version
+			".git/",             -- Dossier Git (vérification de version)
+			".gitignore",        -- Fichier d'ignore de Git
+			".gitmodules",       -- Modules Git
+			".svn/",             -- Dossier SVN
+			".hg/",              -- Dossier Mercurial
+			".bzr/",             -- Dossier Bazaar
+			".vscode/",          -- Paramètres de projet VS Code
+			".idea/",            -- Dossier JetBrains
+
+			-- Fichiers temporaires et spécifiques au système
+			"%.bak$",            -- Fichiers de sauvegarde
+			"%.tmp$",            -- Fichiers temporaires
+			"%.swp$",            -- Fichiers de swap
+			"%.swo$",            -- Fichiers de swap
+			"*~",
+		}
+	}
 }
