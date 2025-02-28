@@ -11,7 +11,8 @@ configs.setup({
 		"vimdoc",
 		"markdown",
 		"regex",
-		"bash"
+		"bash",
+		"haskell"
 	},
 	highlight = { enable = true },
 	indent = { enable = true },
