@@ -41,12 +41,13 @@ cmp.setup({
     }
 })
 
-vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>gh", vim.lsp.buf.hover, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
-vim.keymap.set("n", '<leader>rn', vim.lsp.buf.rename, {})
+vim.keymap.set("n", "<leader>ldf", vim.lsp.buf.definition, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ldc", vim.lsp.buf.declaration, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>lrf", vim.lsp.buf.references, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>li", vim.lsp.buf.implementation, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>lh", vim.lsp.buf.hover, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>lc', vim.lsp.buf.code_action, {})
+vim.keymap.set("n", '<leader>lrn', vim.lsp.buf.rename, {})
+vim.keymap.set("n", '<leader>le', vim.diagnostic.open_float, {})
 
 require("luasnip.loaders.from_vscode").lazy_load()

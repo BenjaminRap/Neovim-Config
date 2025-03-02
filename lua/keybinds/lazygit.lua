@@ -5,4 +5,4 @@ function OpenLazygitInTab()
 end
 
 -- Associer la fonction à un raccourci clavier (par exemple : <leader>g)
-vim.keymap.set("n", "<leader>l", OpenLazygitInTab, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>g", OpenLazygitInTab, { noremap = true, silent = true })

@@ -12,6 +12,8 @@ Sections :
 	- |Terminal💻|
 	- |Tabs🗂️|
 	- |Debugger🐞|
+	- |Lsp󱃖|
+	- |Lazygit󰊢|
 
 =========================================================================================
 
@@ -112,8 +114,50 @@ Sections :
 *Debugger🐞*
 
 -----------------------------------------------------------------------------------------
-	Il faut utiliser `<leader>d` + something, d pour debugger
+	Il faut utiliser `<leader>d` + something, d pour debugger.
 	Keybinds:
 		- `<leader>db` : creer un breakpoint, b pour breakpoint.
 		- `<leader>dc` : lancer le debugger ou continuer d'un breakpoint a l'autre, c pour continue.
 	Une fois que l'ui du dedbugger est ouverte, il y a des boutons, plus besoin d'utiliser des keybinds.
+
+*Lsp󱃖*
+
+-----------------------------------------------------------------------------------------
+	Il faut utiliser <leader>l + something, l pour lsp.
+	Keybinds :
+		`<leader>ldc`: aller a la |declaration|, dc pour declaration.
+		`<leader>ldf`: aller a la |definition|, df pour definition
+		`<leader>li`: aller a l' |implementation|, i pour implementation.
+		`<leader>lrf`: aller aux |references|, rf pour references.
+		`<leader>lh`: aller au |hover|, h pour hover.
+		`<leader>lc`: aller aux |code_actions|, c pour code actions.
+		`<leader>lrn`: rename, rn pour rename.
+		`<leader>le`: ouvrir un popup pour le warning/erreur/diagnostic de
+		lsp, e pour erreur.
+	Expliquations :
+		*declaration*: C'est l'introduction d'un symbole :
+			- int test;
+			- void foo();
+			- class Bar;
+		*definition*: C'est le code dans lequel le symbole prend une valeur :
+			- test = 4;
+			- foo = {}
+			- class Bar {}
+		*implementation*: S'applique aux interfaces et classes/functions
+		abstraites, il represente l'endroit dans lequel ces symboles sont
+		soit override pour une methode ou heriter pour une classe :
+			- void method ovveride {}
+			- class Child : public Base
+		*references*: C'est l'endroit dans lequel ce symbole est utilise:
+			- test + 5
+			- foo()
+		*hover*: ce sont des informations sur le symbole, ou il est definit, ce
+		qu'il represente ...
+		*code_actions*: Ce sotn des quick fix faisable par le lsp.
+
+*Lazygit󰊢*
+
+-----------------------------------------------------------------------------------------
+	Il faut utiliser <leader>g, g pour git.
+	Keybinds:
+		`<leader>g`: ouvrir lazygit dans une autre page, g pour git.
