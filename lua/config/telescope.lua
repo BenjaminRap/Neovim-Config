@@ -64,6 +64,7 @@ telescope.setup {
 			"%.apk$",            -- Fichiers APK générés pour Android
 			"%.exe$",            -- Fichiers exécutables générés (Windows)
 			"%.app$",            -- Fichiers app générés (macOS)
+			"%.meta$",			 -- Fichiers meta de chaque fichiers unity
 
 			-- Fichiers de gestion de version
 			".git/",             -- Dossier Git (vérification de version)
