@@ -10,6 +10,7 @@ configs.setup({
 		"python",
 		"vimdoc",
 		"markdown",
+		"markdown_inline",
 		"regex",
 		"bash",
 		"haskell"

@@ -82,6 +82,11 @@ telescope.setup {
 			"%.swp$",            -- Fichiers de swap
 			"%.swo$",            -- Fichiers de swap
 			"*~",
-		}
+		},
+		path_display = function(_, path)
+			return require("telescope.utils").path_tail(path)
+		end,
+		sorting_strategy = "descending",
+		file_sorter = require("telescope.sorters").get_fzy_sorter,
 	}
 }
