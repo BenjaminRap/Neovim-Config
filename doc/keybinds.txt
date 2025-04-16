@@ -132,6 +132,7 @@ Sections :
 		`<leader>lh`: aller au |hover|, h pour hover.
 		`<leader>lc`: aller aux |code_actions|, c pour code actions.
 		`<leader>lrn`: rename, rn pour rename.
+		`<leader>lp`: toggle l'affichage des parametres (inlay_hint)
 		`<leader>le`: ouvrir un popup pour le warning/erreur/diagnostic de
 		lsp, e pour erreur.
 	Expliquations :
@@ -153,7 +154,9 @@ Sections :
 			- foo()
 		*hover*: ce sont des informations sur le symbole, ou il est definit, ce
 		qu'il represente ...
-		*code_actions*: Ce sotn des quick fix faisable par le lsp.
+		*code_actions*: Ce sont des quick fix faisable par le lsp.
+		*inlay_hint*: Ce sont les noms des parametres des fonctions, ils
+		peuvent etre affiche juste a gauche de leur valeur.
 
 *Lazygit󰊢*
 

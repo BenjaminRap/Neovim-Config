@@ -9,8 +9,14 @@ lspconfig.clangd.setup({
 			signs = true,          -- Affiche des icônes d'erreur dans la marge
 			update_in_insert = false,
 		})
-	end
+		vim.lsp.inlay_hint.enable(true)
+	end,
+	cmd = {"clangd", "--inlay-hints=true" }
 })
+
+vim.keymap.set("n", '<leader>lp', function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, {})
 
 lspconfig.lua_ls.setup({
 	capabilities = capabilities,
