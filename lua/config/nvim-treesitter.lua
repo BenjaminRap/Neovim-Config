@@ -13,7 +13,8 @@ configs.setup({
 		"markdown_inline",
 		"regex",
 		"bash",
-		"haskell"
+		"haskell",
+		"typescript"
 	},
 	highlight = { enable = true },
 	indent = { enable = true },
