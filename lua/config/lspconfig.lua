@@ -67,43 +67,17 @@ lspconfig.hls.setup({
     single_file_support = true,
 })
 
--- lspconfig.csharp_ls.setup({
--- 	capabilities = capabilities,
--- 	cmd = { "csharp-ls" },
--- 	filetypes = { "cs", "csharp" },
--- 	root_dir = lspconfig.util.root_pattern("*.sln"),  -- Racine du projet
--- 	settings = {
--- 		csharp = {
--- 			codeActions = {
--- 				enable = true,
--- 			},
--- 			-- formatting = {
--- 			-- 	enable = true,
--- 			-- },
--- 			diagnostics = {
--- 				enable = true,
--- 			},
--- 		},
--- 	},
--- })
-
--- lspconfig.omnisharp.setup({
--- 	cmd = {
--- 		"omnisharp",
--- 		"--languageserver",
--- 		"--hostPID",
--- 		tostring(vim.fn.getpid())
--- 	},
--- 	settings = {
--- 		FormattingOptions = {
--- 			EnableEditorConfigSupport = false,
--- 		},
--- 		RoslynExtensionsOptions = {
--- 			EnableDecompilationSupport = false,
--- 			EnableImportCompletion = true,
--- 			EnableAnalyzersSupport = false,
--- 		},
--- 	},
--- 	root_dir = lspconfig.util.root_pattern("*.sln")
--- })
---
+lspconfig.ts_ls.setup({
+  capabilities = capabilities,  -- Assure-toi d'avoir une configuration `capabilities` appropriée, comme avec clangd
+  on_attach = function(client, bufnr)
+    -- Configurer les diagnostics
+    vim.diagnostic.config({
+      virtual_text = true,   -- Affiche les erreurs directement dans le code
+      signs = true,          -- Affiche des icônes d'erreur dans la marge
+      update_in_insert = false,
+    })
+    -- Activer les inlay hints
+    vim.lsp.inlay_hint.enable(true)
+  end,
+  cmd = { "typescript-language-server", "--stdio" },  -- Lancer le serveur avec l'option `--stdio`
+})
