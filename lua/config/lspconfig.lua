@@ -34,11 +34,6 @@ lspconfig.cssls.setup({
   on_attach = on_attach_common,
 })
 
-lspconfig.ts_ls.setup({
-  capabilities = capabilities,
-  on_attach = on_attach_common,
-})
-
 vim.keymap.set("n", '<leader>lp', function()
 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, {})
@@ -76,16 +71,7 @@ lspconfig.hls.setup({
 })
 
 lspconfig.ts_ls.setup({
-  capabilities = capabilities,  -- Assure-toi d'avoir une configuration `capabilities` appropriée, comme avec clangd
-  on_attach = function(client, bufnr)
-    -- Configurer les diagnostics
-    vim.diagnostic.config({
-      virtual_text = true,   -- Affiche les erreurs directement dans le code
-      signs = true,          -- Affiche des icônes d'erreur dans la marge
-      update_in_insert = false,
-    })
-    -- Activer les inlay hints
-    vim.lsp.inlay_hint.enable(true)
-  end,
-  cmd = { "typescript-language-server", "--stdio" },  -- Lancer le serveur avec l'option `--stdio`
+  capabilities = capabilities,
+  on_attach = on_attach_common,
+  cmd = { "typescript-language-server", "--stdio" },
 })
