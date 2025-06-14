@@ -1,17 +1,34 @@
 local lspconfig = require('lspconfig')
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+local function on_attach_common(client, bufnr)
+  vim.diagnostic.config({
+    virtual_text = true,
+    signs = true,
+    update_in_insert = false,
+  })
+  vim.lsp.inlay_hint.enable(true)
+end
+
 lspconfig.clangd.setup({
 	capabilities = capabilities,
-	on_attach = function(client, bufnr)
-		vim.diagnostic.config({
-			virtual_text = true,   -- Affiche les erreurs directement dans le code
-			signs = true,          -- Affiche des icônes d'erreur dans la marge
-			update_in_insert = false,
-		})
-		vim.lsp.inlay_hint.enable(true)
-	end,
+	on_attach = on_attach_common,
 	cmd = {"clangd", "--inlay-hints=true" }
+})
+
+lspconfig.html.setup({
+  capabilities = capabilities,
+  on_attach = on_attach_common,
+})
+
+lspconfig.cssls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach_common,
+})
+
+lspconfig.ts_ls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach_common,
 })
 
 vim.keymap.set("n", '<leader>lp', function()
@@ -20,6 +37,7 @@ end, {})
 
 lspconfig.lua_ls.setup({
 	capabilities = capabilities,
+	on_attach = on_attach_common,
 	settings = {
 		Lua = {
 			runtime = {
