@@ -15,7 +15,8 @@ configs.setup({
 		"bash",
 		"haskell",
 		"html",
-		"typescript"
+		"typescript",
+		"glsl"
 	},
 	highlight = { enable = true },
 	indent = { enable = true },
