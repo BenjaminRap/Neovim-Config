@@ -21,6 +21,14 @@ lspconfig.html.setup({
   on_attach = on_attach_common,
 })
 
+lspconfig.emmet_ls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach_common,
+  filetypes = {
+    'html', 'css', 'scss', 'javascriptreact', 'typescriptreact'
+  },
+})
+
 lspconfig.cssls.setup({
   capabilities = capabilities,
   on_attach = on_attach_common,
