@@ -21,6 +21,11 @@ lspconfig.html.setup({
   on_attach = on_attach_common,
 })
 
+lspconfig.glsl_analyzer.setup({
+  capabilities = capabilities,
+  on_attach = on_attach_common,
+})
+
 lspconfig.emmet_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach_common,
