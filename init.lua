@@ -1,5 +1,12 @@
 require("config.lazy")
 
+if vim.fn.has('win32') == 1 then
+  vim.opt.shell = 'powershell'
+  vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command'
+  vim.opt.shellquote = ''
+  vim.opt.shellxquote = ''
+end
+
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 vim.cmd("set shiftwidth=4")
