@@ -1,5 +1,10 @@
 require("config.lazy")
 
+if vim.g.neovide == true then
+  vim.keymap.set({ "n", "x" }, "<C-S-C>", '"+y', { desc = "Copy system clipboard" })
+  vim.keymap.set({ "n", "x" }, "<C-S-V>", '"+p', { desc = "Paste system clipboard" })
+end
+
 if vim.fn.has('win32') == 1 then
   vim.opt.shell = 'powershell'
   vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command'
