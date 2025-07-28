@@ -1,5 +1,21 @@
 require("config.lazy")
 
+local in_wsl = vim.fn.has("wsl") == 1
+
+if in_wsl then
+  vim.g.clipboard = {
+    name = "win32yank-wsl",
+    copy = {
+      ["+"] = "win32yank -i --crlf",
+      ["*"] = "win32yank -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank -o --lf",
+      ["*"] = "win32yank -o --lf",
+    },
+    cache_enabled = false,
+  }
+end
 if vim.fn.has('win32') == 1 then
   vim.opt.shell = 'powershell'
   vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command'
