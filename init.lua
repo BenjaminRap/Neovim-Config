@@ -1,5 +1,21 @@
 require("config.lazy")
 
+local in_wsl = vim.fn.has("wsl") == 1
+
+if in_wsl then
+  vim.g.clipboard = {
+    name = "win32yank-wsl",
+    copy = {
+      ["+"] = "win32yank -i --crlf",
+      ["*"] = "win32yank -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank -o --lf",
+      ["*"] = "win32yank -o --lf",
+    },
+    cache_enabled = false,
+  }
+end
 if vim.g.neovide == true then
   vim.keymap.set({ "n", "x" }, "<C-S-C>", '"+y', { desc = "Copy system clipboard" })
   vim.keymap.set({ "n", "x" }, "<C-S-V>", '"+p', { desc = "Paste system clipboard" })
