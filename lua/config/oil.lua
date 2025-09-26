@@ -1,6 +1,11 @@
 vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-require("oil").setup({
+local	oilPlugin = require("oil");
+
+-- Initialisation de la liste des extensions cachées (vide au démarrage)
+local	oil_hidden_exts = {}
+
+oilPlugin.setup({
   -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
   -- Set to false if you want some other plugin (e.g. netrw) to open when you edit directories.
   default_file_explorer = true,
@@ -89,6 +94,12 @@ require("oil").setup({
     end,
     -- This function defines what will never be shown, even when `show_hidden` is set
     is_always_hidden = function(name, bufnr)
+      -- Vérifier si l'extension est dans la liste cachée
+      for ext, value in pairs(oil_hidden_exts or {}) do
+        if value == true and name:sub(-#ext) == ext then
+          return true
+        end
+      end
       return false
     end,
     -- Sort file names with numbers in a more intuitive order for humans.
@@ -233,3 +244,30 @@ require('oil-git-status').setup({
 		},
 	},
 })
+
+-- Commande :Hide .ext
+vim.api.nvim_create_user_command("Hide", function(opts)
+  local ext = opts.args
+  if ext ~= "" then
+	oil_hidden_exts[ext] = true;
+  end
+end, {
+  nargs = 1,
+  complete = function(_, _, _)
+    return { ".txt", ".log", ".tmp" } -- pour l'autocomplétion basique
+  end,
+})
+
+-- Commande :UnHide .ext
+vim.api.nvim_create_user_command("UnHide", function(opts)
+  local ext = opts.args
+  if ext ~= "" then
+	oil_hidden_exts[ext] = nil;
+  end
+end, {
+  nargs = 1,
+  complete = function(_, _, _)
+    return vim.g.oil_hidden_exts
+  end,
+})
+
