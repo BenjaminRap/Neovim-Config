@@ -1,5 +1,6 @@
 local lspconfig = require('lspconfig')
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local util = require("lspconfig.util")
 
 local function on_attach_common(client, bufnr)
   vim.diagnostic.config({
@@ -9,6 +10,16 @@ local function on_attach_common(client, bufnr)
   })
   vim.lsp.inlay_hint.enable(true)
 end
+
+vim.lsp.config("roslyn", {
+	capabilities = capabilities,
+	on_attach = on_attach_common,
+	root_dit = function(name)
+		return util.root_pattern("*.sln")(name)
+			or util.root_pattern("*.csproj")(name)
+			or util.root_pattern(".git")(name)
+	end
+})
 
 lspconfig.clangd.setup({
 	capabilities = capabilities,
