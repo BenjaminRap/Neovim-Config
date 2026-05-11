@@ -1,15 +1,7 @@
-local lspconfig = require('lspconfig')
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local util = require("lspconfig.util")
-
-local function on_attach_common(client, bufnr)
-  vim.diagnostic.config({
-    virtual_text = true,
-    signs = true,
-    update_in_insert = false,
-  })
-  vim.lsp.inlay_hint.enable(true)
-end
+local lspshared = require("config.lspshared")
+local capabilities = lspshared.capabilities
+local on_attach_common = lspshared.on_attach_common
 
 vim.lsp.config("roslyn", {
 	capabilities = capabilities,
@@ -21,28 +13,28 @@ vim.lsp.config("roslyn", {
 	end
 })
 
-lspconfig.clangd.setup({
+vim.lsp.config("clangd", {
 	capabilities = capabilities,
 	on_attach = on_attach_common,
 	cmd = {"clangd", "--inlay-hints=true" }
 })
 
-lspconfig.html.setup({
+vim.lsp.config("html", {
   capabilities = capabilities,
   on_attach = on_attach_common,
 })
 
-lspconfig.tailwindcss.setup({
+vim.lsp.config("tailwindcss", {
   capabilities = capabilities,
   on_attach = on_attach_common,
 })
 
-lspconfig.glsl_analyzer.setup({
+vim.lsp.config("glsl_analyzer", {
   capabilities = capabilities,
   on_attach = on_attach_common,
 })
 
-lspconfig.emmet_ls.setup({
+vim.lsp.config("emmet_ls", {
   capabilities = capabilities,
   on_attach = on_attach_common,
   filetypes = {
@@ -50,7 +42,7 @@ lspconfig.emmet_ls.setup({
   },
 })
 
-lspconfig.cssls.setup({
+vim.lsp.config("cssls", {
   capabilities = capabilities,
   on_attach = on_attach_common,
 })
@@ -59,7 +51,7 @@ vim.keymap.set("n", '<leader>lp', function()
 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, {})
 
-lspconfig.lua_ls.setup({
+vim.lsp.config("lua_ls", {
 	capabilities = capabilities,
 	on_attach = on_attach_common,
 	settings = {
@@ -83,16 +75,53 @@ lspconfig.lua_ls.setup({
 	},
 })
 
-lspconfig.hls.setup({
+vim.lsp.config("hls", {
 	capabilities = capabilities,
 	cmd = { 'haskell-language-server-wrapper', '--lsp' },
     filetypes = { 'haskell', 'lhaskell', 'cabal' },
-    root_dir = lspconfig.util.root_pattern('hie.yaml', 'stack.yaml', 'cabal.project', '*.cabal', 'package.yaml'),
+    root_dir = require("lspconfig").util.root_pattern('hie.yaml', 'stack.yaml', 'cabal.project', '*.cabal', 'package.yaml'),
     single_file_support = true,
 })
 
-lspconfig.ts_ls.setup({
-  capabilities = capabilities,
-  on_attach = on_attach_common,
-  cmd = { "typescript-language-server", "--stdio" },
+vim.lsp.config("ts_ls", {
+	capabilities = capabilities,
+	on_attach = on_attach_common,
+	cmd = { "typescript-language-server", "--stdio" },
+	settings = {
+		typescript = {
+			preferTypeOnlyAutoImports = true
+		}
+	}
+})
+
+
+vim.lsp.config("tailwindcss", {
+	capabilities = capabilities,
+	cmd = { "tailwindcss-language-server", "--stdio" },
+	root_dir = require("lspconfig").util.root_pattern("tailwind.config.js", "package.json"),
+	settings = {
+		tailwindCSS = {
+			classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
+			includeLanguages = {
+				eelixir = "html-eex",
+				elixir = "phoenix-heex",
+				eruby = "erb",
+				heex = "phoenix-heex",
+				htmlangular = "html",
+				templ = "html",
+				typescript = "html",
+				typescriptreact = "html"
+			},
+			lint = {
+				cssConflict = "warning",
+				invalidApply = "error",
+				invalidConfigPath = "error",
+				invalidScreen = "error",
+				invalidTailwindDirective = "error",
+				invalidVariant = "error",
+				recommendedVariantOrder = "warning"
+			},
+			validate = true
+		}
+	},
 })

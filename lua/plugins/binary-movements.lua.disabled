@@ -1,0 +1,7 @@
+
+return {
+    'BenjaminRap/binary-movements',
+	opts = {
+		helloMessage = "custom message !!"
+	}
+};
