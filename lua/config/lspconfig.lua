@@ -134,3 +134,19 @@ vim.lsp.config("tailwindcss", {
 		}
 	},
 })
+
+local	telescopeBuiltin = require("telescope.builtin");
+
+vim.keymap.set("n", "<leader>ldf", telescopeBuiltin.lsp_definitions, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ltdf", telescopeBuiltin.lsp_type_definitions, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ldw", telescopeBuiltin.lsp_dynamic_workspace_symbols, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>lw", telescopeBuiltin.lsp_workspace_symbols, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>lic", telescopeBuiltin.lsp_incoming_calls, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>loc", telescopeBuiltin.lsp_outgoing_calls, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ldc", vim.lsp.buf.declaration, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>lrf", telescopeBuiltin.lsp_references, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>lim", telescopeBuiltin.lsp_implementations, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>lh", function() vim.lsp.buf.hover() end, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>lc', vim.lsp.buf.code_action, {})
+vim.keymap.set("n", '<leader>lrn', vim.lsp.buf.rename, {})
+vim.keymap.set("n", '<leader>le', telescopeBuiltin.diagnostics, {})
