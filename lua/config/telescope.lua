@@ -88,5 +88,8 @@ telescope.setup {
 		end,
 		sorting_strategy = "descending",
 		file_sorter = require("telescope.sorters").get_fzy_sorter,
+		preview = {
+			treesitter=true
+		}
 	}
 }
