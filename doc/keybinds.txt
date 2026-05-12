@@ -34,6 +34,20 @@ Sections :
 			- `<C-c>` : close file explorer.
 
 
+*Arbre*
+
+-----------------------------------------------------------------------------------------
+	Un explorateur de fichier en arborescence
+	Keybinds :
+		- in normal :
+			- `<leader>en` : toggle the file explorer.
+		- in file explorer:
+			- `<CR>` : Open a file
+			- `<space>` : Toggle a folder being open/closed
+			- `a` : Add a folder of file
+			- `r` : Rename a file
+			- `d` : Delete a file
+
 *Paneaux🖥️*
 
 -----------------------------------------------------------------------------------------
