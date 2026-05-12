@@ -45,7 +45,7 @@ vim.keymap.set("n", "<leader>ldf", vim.lsp.buf.definition, { noremap = true, sil
 vim.keymap.set("n", "<leader>ldc", vim.lsp.buf.declaration, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>lrf", vim.lsp.buf.references, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>li", vim.lsp.buf.implementation, { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>lh", vim.lsp.buf.hover, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>lh", function() vim.lsp.buf.hover() end, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>lc', vim.lsp.buf.code_action, {})
 vim.keymap.set("n", '<leader>lrn', vim.lsp.buf.rename, {})
 vim.keymap.set("n", '<leader>le', vim.diagnostic.open_float, {})
