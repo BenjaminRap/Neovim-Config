@@ -19,6 +19,15 @@ vim.lsp.config("clangd", {
 	cmd = {"clangd", "--inlay-hints=true" }
 })
 
+vim.lsp.config("jsonls", {
+	capabilities = capabilities,
+	on_attach = on_attach_common,
+	settings = {
+		schemas = require("schemastore").json.schemas(),
+		validate = {enable = true}
+	}
+})
+
 vim.lsp.config("html", {
   capabilities = capabilities,
   on_attach = on_attach_common,
