@@ -42,3 +42,19 @@ require('keybinds.term')
 vim.g.mapLeader = " "
 
 vim.o.undofile = true
+
+_G.compact_quickfix_list = function(info)
+    local items = vim.fn.getqflist({id = info.id, items = 1}).items
+    local l = {}
+    for i = info.start_idx, info.end_idx do
+        local item = items[i]
+        -- bufname récupère le chemin, fnamemodify(..., ':t') extrait le nom seul
+        local fname = vim.fn.fnamemodify(vim.fn.bufname(item.bufnr), ':t')
+        -- On formate : le nom du fichier (tronqué/espacé à 15 car.) | le texte
+        local line = string.format("%-15s | %s", fname, item.text)
+        table.insert(l, line)
+    end
+    return l
+end
+
+vim.o.quickfixtextfunc = "v:lua.compact_quickfix_list"
