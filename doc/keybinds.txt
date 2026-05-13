@@ -142,11 +142,10 @@ Sections :
 		`<leader>ldf`: aller a la |definition|
 		`<leader>ltdf`: aller a la |type| |definition|
 		`<leader>lw`: liste les |symboles| du |workspace|
-		`<leader>ldw`: comme |lw|, mais avec recherche |dynamique|
 		`<leader>lic`: liste les fonctions qui appellent cette fonction, ic
-		pour |incoming calls|
+		pour |incoming| |calls|
 		`<leader>loc`: liste les fonctions que cette fonction appelle, oc pour
-		outgoing calls
+		|outgoing| |calls|
 		`<leader>ldc`: aller a la |declaration|
 		`<leader>lrf`: aller aux |references|, rf pour references.
 		`<leader>lim`: aller a l' |implementation
