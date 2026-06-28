@@ -90,6 +90,28 @@ dap.configurations.java = {
 }
 
 -- =========================================================
+-- Python
+-- =========================================================
+
+dap.adapters.python = {
+  type = "executable",
+  command = "python",
+  args = { "-m", "debugpy.adapter" },
+}
+
+dap.configurations.python = {
+  {
+    type = "python",
+    request = "launch",
+    name = "Launch file",
+    program = "${file}",
+    pythonPath = function()
+      return os.getenv("VIRTUAL_ENV") .. "/bin/python"
+    end,
+  },
+}
+
+-- =========================================================
 -- 🪟 UI
 -- =========================================================
 
