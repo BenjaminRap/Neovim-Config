@@ -2,61 +2,103 @@ local M = {}
 
 local dap = require("dap")
 
--- =========================================================
--- 🔵 TON CONFIG C (INCHANGÉ)
--- =========================================================
-
-dap.adapters.gdb = {
-	type = "executable",
-	command = "gdb",
-	args = {
-		"--interpreter=dap",
-		"--eval-command",
-		"set print pretty on"
-	},
-	name = "gdb"
-}
-
 vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, {})
 vim.keymap.set('n', '<leader>dc', dap.continue, {})
 
-dap.configurations.c = {
-	{
-		name = "Launch",
-		type = "gdb",
-		request = "launch",
-		program = function()
-			return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-		end,
-		cwd = "${workspaceFolder}",
-		stopAtBeginningOfMainSubprogram = false,
-	},
-	{
-		name = "Select and attach to process",
-		type = "gdb",
-		request = "attach",
-		program = function()
-			return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-		end,
-		pid = function()
-			local name = vim.fn.input('Executable name (filter): ')
-			return require("dap.utils").pick_process({ filter = name })
-		end,
-		cwd = '${workspaceFolder}'
-	},
-	{
-		name = 'Attach to gdbserver :1234',
-		type = 'gdb',
-		request = 'attach',
-		target = 'localhost:1234',
-		program = function()
-			return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-		end,
-		cwd = '${workspaceFolder}'
-	},
+-- =========================================================
+-- 🔵 CONFIG C/C++
+-- =========================================================
+
+dap.adapters.codelldb = {
+  type = 'server',
+  port = "${port}",
+  executable = {
+    command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
+    args = {"--port", "${port}"},
+  }
 }
 
-dap.configurations.cpp = dap.configurations.c
+local function get_program_and_args()
+	local program = vim.fn.input({
+		prompt = "Executable",
+		default = "./",
+		completion = "file",
+		cancelreturn = "__CANCEL__"
+	})
+
+    if program == "__CANCEL__" then
+        return nil, {}
+    end
+
+    local args = {}
+
+    while true do
+        local arg = vim.fn.input({
+            prompt = string.format("Argument %d: ", #args + 1),
+			default = "",
+			completion = "file",
+			cancelreturn = "__CANCEL__"
+		})
+
+        if arg == "__CANCEL__" then
+            break
+        end
+
+        table.insert(args, arg)
+    end
+
+    return program, args
+end
+
+dap.configurations.cpp = {
+    -- --------------------------------------------------------
+    -- Launch
+    -- --------------------------------------------------------
+    {
+        name = "Launch",
+        type = "codelldb",
+        request = "launch",
+
+        program = function()
+            local program, args = get_program_and_args()
+
+            if not program then
+                return nil
+            end
+
+            vim.g.dap_program_args = args
+
+            return program
+        end,
+
+        args = function()
+            return vim.g.dap_program_args or {}
+        end,
+
+        cwd = "${workspaceFolder}",
+
+        stopOnEntry = false,
+    },
+    {
+        name = "Attach",
+        type = "codelldb",
+        request = "attach",
+
+        pid = function()
+            local pid = vim.fn.input("PID: ")
+
+            if pid == "" then
+                return nil
+            end
+
+            return tonumber(pid)
+        end,
+
+        cwd = "${workspaceFolder}",
+    },
+}
+
+dap.configurations.c = dap.configurations.cpp
 
 -- =========================================================
 -- 🟢 JAVA (Minecraft ONLY AJOUT)
