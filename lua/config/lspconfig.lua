@@ -6,7 +6,7 @@ local on_attach_common = lspshared.on_attach_common
 vim.lsp.config("roslyn", {
 	capabilities = capabilities,
 	on_attach = on_attach_common,
-	root_dit = function(name)
+	root_dir = function(name)
 		return util.root_pattern("*.sln")(name)
 			or util.root_pattern("*.csproj")(name)
 			or util.root_pattern(".git")(name)
@@ -33,9 +33,25 @@ vim.lsp.config("html", {
   on_attach = on_attach_common,
 })
 
-vim.lsp.config("tailwindcss", {
+lspconfig.tailwindcss.setup({
   capabilities = capabilities,
   on_attach = on_attach_common,
+  filetypes = {
+    'html', 'css', 'scss', 'javascriptreact', 'typescriptreact'
+  },
+})
+
+lspconfig.glsl_analyzer.setup({
+  capabilities = capabilities,
+  on_attach = on_attach_common,
+})
+
+lspconfig.emmet_ls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach_common,
+  filetypes = {
+    'html', 'css', 'scss', 'javascriptreact', 'typescriptreact'
+  },
 })
 
 vim.lsp.config("glsl_analyzer", {
