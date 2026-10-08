@@ -33,7 +33,7 @@ vim.lsp.config("html", {
   on_attach = on_attach_common,
 })
 
-lspconfig.tailwindcss.setup({
+vim.lsp.config("tailwindcss", {
   capabilities = capabilities,
   on_attach = on_attach_common,
   filetypes = {
@@ -41,12 +41,12 @@ lspconfig.tailwindcss.setup({
   },
 })
 
-lspconfig.glsl_analyzer.setup({
+vim.lsp.config("glsl_analyzer", {
   capabilities = capabilities,
   on_attach = on_attach_common,
 })
 
-lspconfig.emmet_ls.setup({
+vim.lsp.config("emmet_ls", {
   capabilities = capabilities,
   on_attach = on_attach_common,
   filetypes = {
