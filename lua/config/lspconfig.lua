@@ -36,9 +36,7 @@ vim.lsp.config("html", {
 vim.lsp.config("tailwindcss", {
   capabilities = capabilities,
   on_attach = on_attach_common,
-  filetypes = {
-    'html', 'css', 'scss', 'javascriptreact', 'typescriptreact'
-  },
+  filetypes = { 'html', 'css', 'scss', 'javascriptreact', 'typescriptreact' }
 })
 
 vim.lsp.config("glsl_analyzer", {
@@ -119,38 +117,6 @@ vim.lsp.config("ts_ls", {
 	}
 })
 
-
-vim.lsp.config("tailwindcss", {
-	capabilities = capabilities,
-	cmd = { "tailwindcss-language-server", "--stdio" },
-	root_dir = require("lspconfig").util.root_pattern("tailwind.config.js", "package.json"),
-	settings = {
-		tailwindCSS = {
-			classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
-			includeLanguages = {
-				eelixir = "html-eex",
-				elixir = "phoenix-heex",
-				eruby = "erb",
-				heex = "phoenix-heex",
-				htmlangular = "html",
-				templ = "html",
-				typescript = "html",
-				typescriptreact = "html"
-			},
-			lint = {
-				cssConflict = "warning",
-				invalidApply = "error",
-				invalidConfigPath = "error",
-				invalidScreen = "error",
-				invalidTailwindDirective = "error",
-				invalidVariant = "error",
-				recommendedVariantOrder = "warning"
-			},
-			validate = true
-		}
-	},
-})
-
 vim.keymap.set("n", "<leader>ldf", vim.lsp.buf.definition, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ltdf", vim.lsp.buf.type_definition, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>lw", vim.lsp.buf.workspace_symbol, { noremap = true, silent = true })
@@ -159,7 +125,7 @@ vim.keymap.set("n", "<leader>loc", vim.lsp.buf.outgoing_calls, { noremap = true,
 vim.keymap.set("n", "<leader>ldc", vim.lsp.buf.declaration, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>lrf", vim.lsp.buf.references, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>lim", vim.lsp.buf.implementation, { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>lh", function() vim.lsp.buf.hover() end, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>lh", function() vim.lsp.buf.hover({ silent = true }) end, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>lc', vim.lsp.buf.code_action, {})
 vim.keymap.set("n", '<leader>lrn', vim.lsp.buf.rename, {})
 vim.keymap.set("n", '<leader>le', vim.diagnostic.open_float, {})
