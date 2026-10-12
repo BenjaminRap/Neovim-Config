@@ -57,14 +57,6 @@ vim.lsp.config("glsl_analyzer", {
   on_attach = on_attach_common,
 })
 
-vim.lsp.config("emmet_ls", {
-  capabilities = capabilities,
-  on_attach = on_attach_common,
-  filetypes = {
-    'html', 'css', 'scss', 'javascriptreact', 'typescriptreact'
-  },
-})
-
 vim.lsp.config("cssls", {
   capabilities = capabilities,
   on_attach = on_attach_common,
@@ -125,7 +117,7 @@ vim.keymap.set("n", "<leader>loc", vim.lsp.buf.outgoing_calls, { noremap = true,
 vim.keymap.set("n", "<leader>ldc", vim.lsp.buf.declaration, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>lrf", vim.lsp.buf.references, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>lim", vim.lsp.buf.implementation, { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>lh", function() vim.lsp.buf.hover({ silent = true }) end, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>lh", vim.lsp.buf.hover, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>lc', vim.lsp.buf.code_action, {})
 vim.keymap.set("n", '<leader>lrn', vim.lsp.buf.rename, {})
 vim.keymap.set("n", '<leader>le', vim.diagnostic.open_float, {})
