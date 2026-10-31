@@ -52,6 +52,14 @@ vim.lsp.config("emmet_ls", {
   },
 })
 
+vim.lsp.config("eslint", {
+  capabilities = capabilities,
+  on_attach = on_attach_common,
+  filetypes = {
+    'html', 'css', 'scss', 'javascriptreact', 'typescriptreact'
+  },
+})
+
 vim.lsp.config("cssls", {
   capabilities = capabilities,
   on_attach = on_attach_common,
