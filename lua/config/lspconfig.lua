@@ -52,11 +52,6 @@ vim.lsp.config("emmet_ls", {
   },
 })
 
-vim.lsp.config("glsl_analyzer", {
-  capabilities = capabilities,
-  on_attach = on_attach_common,
-})
-
 vim.lsp.config("cssls", {
   capabilities = capabilities,
   on_attach = on_attach_common,
