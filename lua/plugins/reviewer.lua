@@ -10,7 +10,6 @@ return {
   keys = {
     { "<leader>r", nil, desc = "Review" },
     { "<leader>rv", "<cmd>Review<cr>", desc = "Start the review" },
-    { "<leader>rb", "<cmd>Review browse<cr>", desc = "Review browser" },
     { "<leader>rq", "<cmd>Review quiz<cr>", desc = "Review quiz" },
     { "<leader>rP", "<cmd>Review progress<cr>", desc = "Review progress" },
   },
@@ -18,6 +17,21 @@ return {
     colors = "vivid", -- green and red mixed into the tokyonight background; changed words stronger
     comments = "marker", -- a ✦ in the sign column; <leader>rh opens the comment (<leader>rc switches)
     key_hints = true, -- one-line key bar at the bottom, g? for every key (:Review keys hides it)
+    -- keys left out of the bar because they already do the same thing in oil
+    -- (lua/config/oil.lua); g? still lists them
+    key_bar = {
+      hide = {
+        browser = {
+          "open", -- <C-l>: actions.select
+          "parent", -- <C-h>: actions.parent
+          "help", -- g?: actions.show_help
+        },
+        file = {
+          "browse", -- <leader>e: :Oil
+          "help", -- g?
+        },
+      },
+    },
     -- in a reviewed file, <leader>e opens the review browser (like your :Oil mapping)
     keymaps = {
       file = { browse = "<leader>e" },
@@ -30,6 +44,7 @@ return {
         open_tab = "<A-t>",
         preview = "<A-p>",
         refresh = "<A-r>",
+        close = { "<C-c>", "<A-c>" }, -- back to the previous file
       },
     },
     repos = {
