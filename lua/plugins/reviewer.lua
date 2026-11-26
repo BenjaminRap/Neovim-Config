@@ -6,21 +6,18 @@ return {
   main = "reviewer",
   -- To work on the plugin itself, replace the name and `url` lines above by:
   -- dir = "~/Documents/nvim-reviewer",
-  cmd = {
-    "Review", "ReviewBrowse", "ReviewQuiz", "ReviewProgress",
-    "ReviewAsks", "ReviewPrepare", "ReviewOverview", "ReviewFetch", "ReviewClean", "ReviewKeys",
-  },
+  cmd = "Review", -- the only command: :Review <Tab> lists the subcommands
   keys = {
     { "<leader>r", nil, desc = "Review" },
     { "<leader>rv", "<cmd>Review<cr>", desc = "Start the review" },
-    { "<leader>rb", "<cmd>ReviewBrowse<cr>", desc = "Review browser" },
-    { "<leader>rq", "<cmd>ReviewQuiz<cr>", desc = "Review quiz" },
-    { "<leader>rP", "<cmd>ReviewProgress<cr>", desc = "Review progress" },
+    { "<leader>rb", "<cmd>Review browse<cr>", desc = "Review browser" },
+    { "<leader>rq", "<cmd>Review quiz<cr>", desc = "Review quiz" },
+    { "<leader>rP", "<cmd>Review progress<cr>", desc = "Review progress" },
   },
   opts = {
     colors = "github", -- GitHub's diff colours; changed words a little stronger
-    comments = "hover", -- a ✦ marker; the comment opens when the cursor is on its line (<leader>rc switches)
-    key_hints = true, -- key bar at the bottom (:ReviewKeys hides it)
+    comments = "marker", -- a ✦ in the sign column; <leader>rh opens the comment (<leader>rc switches)
+    key_hints = true, -- one-line key bar at the bottom, g? for every key (:Review keys hides it)
     -- in a reviewed file, <leader>e opens the review browser (like your :Oil mapping)
     keymaps = {
       file = { browse = "<leader>e" },
