@@ -31,6 +31,10 @@ return {
           "help", -- g?
         },
       },
+      -- keys only in g? by default; <leader>rm (note) is already in the file bar
+      show = {
+        browser = { "notes" }, -- gN: every note of the review, in the quickfix list
+      },
     },
     -- in a reviewed file, <leader>e opens the review browser (like your :Oil mapping)
     keymaps = {
