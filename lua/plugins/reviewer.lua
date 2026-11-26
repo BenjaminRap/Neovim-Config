@@ -15,7 +15,7 @@ return {
     { "<leader>rP", "<cmd>Review progress<cr>", desc = "Review progress" },
   },
   opts = {
-    colors = "github", -- GitHub's diff colours; changed words a little stronger
+    colors = "vivid", -- green and red mixed into the tokyonight background; changed words stronger
     comments = "marker", -- a ✦ in the sign column; <leader>rh opens the comment (<leader>rc switches)
     key_hints = true, -- one-line key bar at the bottom, g? for every key (:Review keys hides it)
     -- in a reviewed file, <leader>e opens the review browser (like your :Oil mapping)
