@@ -8,7 +8,7 @@ return {
   -- dir = "~/Documents/nvim-reviewer",
   cmd = {
     "Review", "ReviewBrowse", "ReviewQuiz", "ReviewProgress",
-    "ReviewAsks", "ReviewPrepare", "ReviewOverview", "ReviewFetch", "ReviewClean",
+    "ReviewAsks", "ReviewPrepare", "ReviewOverview", "ReviewFetch", "ReviewClean", "ReviewKeys",
   },
   keys = {
     { "<leader>r", nil, desc = "Review" },
@@ -18,8 +18,23 @@ return {
     { "<leader>rP", "<cmd>ReviewProgress<cr>", desc = "Review progress" },
   },
   opts = {
+    colors = "github", -- GitHub's diff colours; changed words a little stronger
+    comments = "hover", -- a ✦ marker; the comment opens when the cursor is on its line (<leader>rc switches)
+    key_hints = true, -- key bar at the bottom (:ReviewKeys hides it)
     -- in a reviewed file, <leader>e opens the review browser (like your :Oil mapping)
-    keymaps = { file = { browse = "<leader>e" } },
+    keymaps = {
+      file = { browse = "<leader>e" },
+      -- same keys as the oil buffer (lua/config/oil.lua)
+      browser = {
+        open = { "<CR>", "<C-l>" },
+        parent = { "-", "<C-h>" },
+        open_vsplit = "<A-s>",
+        open_split = "<A-h>",
+        open_tab = "<A-t>",
+        preview = "<A-p>",
+        refresh = "<A-r>",
+      },
+    },
     repos = {
       corelab = {
         generated = {
