@@ -11,7 +11,12 @@ return {
 			},
 			progress = {
 				enabled = false
-			}
+			},
+			-- Noice's hover popup is not focusable; use Neovim's native hover
+			-- float so that pressing K twice moves the cursor into it.
+			hover = {
+				enabled = false
+			},
 		},
 		-- you can enable a preset for easier configuration
 		presets = {
